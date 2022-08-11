@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Lampulan Ringette ry</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+
+body {
+
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco;
+	overflow-x: hidden;
+}
+
+
+.header {
+  	height: 100vh;
+  	background-image: 
+     	url('header_img.jpg');
+	background-size: contain;
+  	background-position: top;
+  	position: relative;
+  	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.heading-primary {
+	color: #111;
+  	backface-visibility: hidden;
+	text-transform: uppercase;
+	text-align: center;
+  	margin-bottom: -50px;
+	margin-top: -50px;
+	text-shadow: 5px 5px 10px white;
+}
+
+.heading-primary-main {
+	display: block;
+  	font-size: 32px;
+  	font-weight: 400;
+  	letter-spacing: 5px;
+}
+
+.heading-primary-sub {
+	display: block;
+  	font-size: 18px;
+  	font-weight: 700;
+  	letter-spacing: 7.4px;
+	margin-top: 120px;
+}
+
+.heading-primary-text {
+	text-transform: none;
+  	display: block;
+  	font-size: 18px;
+  	font-weight: 500;
+	margin-right: 115px;
+	margin-left: 115px;
+	margin-top: -20px;
+}
+
+.navigation {
+
+  	width: 100%;
+  	height: 100%;
+  	position: fixed;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	z-index: 0;
+  	list-style: none;
+  	background: #F0FFFF;
+}
+
+.nav-item {
+ 
+ 	width: 300px;
+  	border-top: 1px solid #111;
+  	border-bottom: 1px solid #000;
+	//float: center;
+  	//margin-right: 15px;
+  	//width: 150px;
+  	//height: 80px;
+  	//border-radius: 10px;
+  	//background-color: rgb(207,232,220);
+  	padding: 0.25em;
+}
+
+.nav-item a {
+
+  	display: block;
+  	padding: 1em;
+  	background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 500%);
+  	color: black;
+  	font-size: 1em;
+  	transition: color 0.2s, background 0.5s;
+}
+
+.nav-item a:hover {
+  	color: white;
+  	background: #111; 
+
+}
+
+
+.site-wrap {
+  
+  	min-height: 100%;
+  	min-width: 100%;
+  	background-color: white;
+  	position: relative;
+  	top: 0;
+  	bottom: 100%;
+  	left: 0;
+  	z-index: 1;
+  	padding: 8em;
+  	background-image: linear-gradient(135deg, rgb(254,255,255) 0%,rgb(221,241,249) 	35%,rgb(160,216,239) 100%);
+  	background-size: 200%;
+}
+
+
+.nav-trigger {
+
+  	position: absolute;
+  	clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+
+  	position: fixed;
+  	left: 15px; top: 15px;
+  	z-index: 2;
+  	height: 30px;
+  	width: 30px;
+  	cursor: pointer;
+  	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' 	xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' 	height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' 	xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect 	y='12' width='30' height='6'/></svg>");
+  	background-size: contain;
+}
+
+.nav-trigger + label, .site-wrap {
+  	transition: left 0.2s;
+}
+
+.nav-trigger:checked + label {
+  	left: 215px;
+}
+
+.nav-trigger:checked ~ .site-wrap {
+  	left: 200px;
+  	box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+
+.footer {
+
+   	position: absolute;
+   	left: 0;
+   	bottom: 0;
+   	width: 100%;
+   	background-color: #F0FFFF;
+	padding: 1 em;
+   	color: black;
+	text-align: left;
+	font-size: 10px;
+	
+}
+
+h2 {
+
+	text-align: left;
+	font-size: 15px;
+	max-width: 600px;
+  	margin: 1em 5em;
+			
+}
+
+h3 {
+
+	text-align: left;
+	font-size: 15px;
+	max-width: 600px;
+  	margin: 1em 5em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+p {
+
+	text-align: left;
+	max-width: 600px;
+	margin: 1em 5em;
+	font-size: 15px;
+
+}
+
+.event {
+  border: 1px solid  #B3D7E6;
+  padding: 20px;
+  overflow: hidden;
+  margin: 20px;
+  background-color: #F2FBFF;
+  color: #555;
+}
+
+.event .btn.btn-primary {
+  font-size: 1.3em;
+}
+
+.event-calendar {
+  float: left;
+  margin-right: 20px;
+  width: 70px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.15);
+  background-color: #fff;
+}
+
+.event-month {
+  background: #BF4141;
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.event-day {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  padding: 3px 0;
+}
+
+.event-details {
+  font-size: 0.7em;
+  display: tabel-cell;
+  vertical-align: middle;
+}
+
+.event-title {
+  font-weight: bold;
+}
+
+.event-info {
+  margin: 8px 0;
+}
+
+.event-info .glyphicon:last-child {
+  margin-left: 10px;
+}
+
+
+
+.tausta {
+    width: 100%;
+    height: 100%;
+    color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.kalenteri {
+    width: 44rem;
+    height: 30rem;
+    background-color: #d5e7ee;
+}
+
+.kuukausi {
+    width: 93,4%;
+    height: 8rem;
+    background-color: #8dbcdb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+
+.kuukausi h1 {
+    font-size: 1.6rem;
+	font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem; 
+}
+
+.kuukausi p {
+    font-size: 1.3rem;
+}
+
+
+.varaus {
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.tab {
+    margin: 0.3rem;
+}
+
+.tab input {
+    margin-left: 10px;
+}
+
+.varauslista table {
+    width: 43.7rem;
+    
+    text-align: center;
+}
+
+.varauslista th {
+	text-align: center;
+}
+
+tr {
+    transition: all .25s ease-in-out;
+}
+
+tr:hover {
+    background-color: #eee;cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+
+<ul class="navigation">
+  <li class="nav-item"><a href="kotisivut_nayttotehtava_etusivu.html">Etusivu</a></li>
+  <li class="nav-item"><a href="kotisivut_nayttotehtava_ryhmat.html">Ryhmät</a></li>
+  <li class="nav-item"><a href="kotisivut_nayttotehtava_yhteystiedot.html">Yhteystiedot</a></li>
+</ul>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger"></label>
+
+<div class="site-wrap">
+
+<header class="header">
+
+<h1 class="heading-primary">
+  <span class="heading-primary-main"><br><br><br>Lampulan Ringette ry</span><br><br><br>
+  <span class="heading-primary-sub">Vauhdikas taitolaji kaikenikäisille!</span><br><br>
+  <span class="heading-primary-text">Ringette on jäällä pelattava joukkuepeli, jossa voima korvataan vauhdilla ja taidolla. Peli on
+  Kanadassa kehitetty ja Suomessa on jo tuhansia lajin harrastajia. Ringette harrastus on helppo
+  aloittaa. Vähäiselläkin luistelutaidolla pääsee alkuun ja varusteiksi riittävät harrastuksen
+  alussa luistimet, kypärä ja hanskat.</span>
+</h1>
+ 
+</header>
+
+<p>Lampulan Ringette tarjoaa jääurheilun harrastusmahdollisuuksia lapsille ja nuorille.
+Valmennus koostuu harrastuksesta kiinnostuneista vanhemmista, sillä yhdistys toimii
+vapaaehtoistyön pohjalta. </p><br>
+	
+<p>Tervetuloa mukaan tutustumaan toimintaamme!</p><br><br>
+
+
+<h3>Yhdistyksen kalenteri</h3>
+
+<div style="height:320px;
+		    width:520px;
+		    border:1px solid #ccc;
+		    font:16px/26px;
+		    overflow:auto;">
+	<div class="tausta">
+	     <div class="kalenteri">
+	        <div class="kuukausi">
+				   <h2></h2>
+	               <h1></h1>
+	               <p></p>
+	       </div>
+		   <div class="varaus">
+		     <caption>JÄÄVUOROT JA TAPAHTUMAT</caption>
+		   </div>
+			<div class="tab">
+  			 <fieldset>
+				<input id="inpday" type="text" name="inpday" placeholder="Lisää päivä ja aika">
+				<input id="inpryhma" type="text" name="inpryhma" placeholder="Lisää ryhmä">
+				<input id="inptietoja" type="text" name="inptietoja" placeholder="Lisätietoja">
+
+				<button onclick="addHtmlTableRow();">Uusi</button>
+				<button onclick="editHtmlTbleSelectedRow();">Muokkaa</button>
+				<button onclick="removeSelectedRow();">Poista</button>
+  			 </fieldset>
+			</div>
+			<div class="varauslista">
+				<table id="table" border="1">	 
+				 <tr>
+					<th>päivä ja aika</th>
+					<th>Ryhmä</th>
+					<th>Lisätietoja</th>
+				 </tr>
+				 <tr>
+					<td>27.8 klo: 11:00-13:00</td>
+					<td>Ringettekoulu</td>
+					<td>jäähalli</td>
+				</tr>
+				<tr>
+					<td>27.8 klo: 13:00-14:30</td>
+					<td>Edustus</td>
+					<td>jäähalli</td>
+				</tr>
+				<tr>
+					<td>27.8 klo: 14:30-16:00</td>
+					<td>B-nuoret</td>
+					<td>jäähalli</td>
+				</tr>
+				<tr>
+					<td>27.8 klo: 16:00-17:30</td>
+					<td>D-nuoret</td>
+					<td>jäähalli</td>
+				</tr>
+				 <tr>
+					 <td>28.8 klo: 14:00-15:30</td>
+					 <td>Edustus</td>
+					 <td>jäähalli</td>
+				 </tr>
+				 <tr>
+					<td>28.8 klo: 16:00-17:30</td>
+					<td>B-nuoret</td>
+					<td>jäähalli</td>
+				</tr>
+				<tr>
+					<td>28.8 klo: 20:00-21:00</td>
+					<td>C-nuoret</td>
+					<td>jäähalli</td>
+				</tr>
+				<tr>
+					<td>29.8 klo: 19:00-20:00</td>
+					<td>D-nuoret</td>
+					<td>jäähalli</td>
+				</tr>
+				<tr>
+					<td>29.8 klo: 20:00-21:00</td>
+					<td>E-nuoret</td>
+					<td>jäähalli</td>
+				</tr>
+				</table>  
+		    </div>
+         </div>
+		</div> 
+      <script>
+		  const date = new Date();
+
+		  const renderCalendar = () => {
+	
+		      const monthDays = document.querySelector(".days")
+    
+		      const prevLastDay = new Date(date.getFullYear(),
+		      date.getMonth(), 0).getDate();
+   
+		      const months = [
+		          "Tammikuu",
+		          "Helmikuu",
+		          "Maaliskuu",
+		          "Huhtikuu",
+		          "Toukokuu",
+		          "Kesäkuu",
+		          "Heinäkuu",
+		          "Elokuu",
+		          "Syyskuu",
+		          "Lokakuu",
+		          "Marraskuu",
+		          "Joulukuu",
+		      ];
+    
+		      document.querySelector('.kuukausi h2').innerHTML
+		      = date.getUTCDate();
+
+
+		      document.querySelector('.kuukausi h1').innerHTML
+		      = months[date.getMonth()];
+    
+		      document.querySelector(".kuukausi p").innerHTML
+		      = date.getFullYear(); 
+		  }
+
+
+		  var rIndex,
+		      table = document.getElementById("table");
+
+		  function addHtmlTableRow() {
+		  	var newRow = table.insertRow(table.length),
+		  		cell1 = newRow.insertCell(0),
+		  		cell2 = newRow.insertCell(1),
+		  		cell3 = newRow.insertCell(2),
+		  		inpday = document.getElementById("inpday").value,
+		  		inpryhma = document.getElementById("inpryhma").value,
+		  		inptietoja = document.getElementById("inptietoja").value;
+	
+		  	cell1.innerHTML = inpday;
+		  	cell2.innerHTML = inpryhma;
+		  	cell3.innerHTML = inptietoja;	
+
+		  	selectedRowToInput();
+		  }
+
+		  function selectedRowToInput() {
+	
+		  	for(var i = 1; i < table.rows.length; i++)
+		  	{
+		  		table.rows[i].onclick = function() {
+		  			rIndex = this.rowIndex;
+		  			console.log(rIndex);
+		  			document.getElementById("inpday").value = this.cells[0].innerHTML;
+		  			document.getElementById("inpryhma").value = this.cells[1].innerHTML;
+		  			document.getElementById("inptietoja").value = this.cells[2].innerHTML;
+		  		};
+		  	}
+		  }
+		  selectedRowToInput();
+
+		  function editHtmlTbleSelectedRow() {
+		  	var inpday = document.getElementById("inpday").value,
+		  	    inpryhma = document.getElementById("inpryhma").value,
+		  	    inptietoja = document.getElementById("inptietoja").value;
+
+		  	table.rows[rIndex].cells[0].innerHTML = inpday;
+		  	table.rows[rIndex].cells[1].innerHTML = inpryhma;
+		  	table.rows[rIndex].cells[2].innerHTML = inptietoja;
+		  }
+
+		  function removeSelectedRow() {
+		  	table.deleteRow(rIndex);
+		  	document.getElementById("inpday").value = "";
+		  	document.getElementById("inpryhma").value = "";
+		  	document.getElementById("inptietoja").value = "";
+		  }
+
+          renderCalendar();
+      </script>
+</div>
+
+
+<div class="footer">(c) Kurpitsa Solutions 2022</div>
+
+
+
+</div>
+</body>
+</html>
